@@ -1,17 +1,22 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue';
+import NoteList from './components/NoteList.vue';
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <Navbar />
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-3">
+        <NoteList />        
+      </div>
+      <div class="col-9">
+        <router-view />        
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  
+
 </template>
 
 <style scoped>
