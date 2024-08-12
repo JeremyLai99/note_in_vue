@@ -55,6 +55,11 @@ export const useNoteStore = defineStore("notes", {
                 this.notes[index].content = content
             }            
         },
-        
+        togglePinned(id) {
+            const index = this.notes.findIndex((note)=> note.id === id)
+            if(!index == -1) {
+                this.notes[index].pinned !== this.notes[index].pinned
+            }
+        },
     }
 })

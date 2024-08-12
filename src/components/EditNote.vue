@@ -36,6 +36,10 @@ const updateNote = () => {
     }
 }
 
+const cancelUpdate = ()=> {
+    router.push('/')
+}
+
 
 
 
@@ -53,6 +57,7 @@ const updateNote = () => {
             <textarea v-model="newNoteContent" class="form-control mt-3" rows="8"></textarea>
         
             <button class="btn btn-success mt-3" @click="updateNote">更新 <i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="btn btn-danger mt-3 ms-3" @click="cancelUpdate">取消更新 <i class="fa-solid fa-xmark"></i></button>
         </form>
     </div>
 </template>
