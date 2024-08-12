@@ -48,12 +48,13 @@ export const useNoteStore = defineStore("notes", {
                 pinned: false,
             })
         },
-        edditNote(title, content){
+        edditNote(id, title, content){
             const index = this.notes.findIndex((note) => note.id === id)
             if(index !== -1) {
                 this.notes[index].title = title
                 this.notes[index].content = content
             }            
-        }
+        },
+        
     }
 })
