@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 
+
 export const useNoteStore = defineStore("notes", {
     state:() => ({
         notes: [
@@ -38,7 +39,7 @@ export const useNoteStore = defineStore("notes", {
         }
     },
     actions:{
-        addNote(title, content){
+        addNote(title, content, router){
             if(!title) return
             const last_id = this.notes[this.notes.length - 1].id
             this.notes.push({
@@ -47,6 +48,7 @@ export const useNoteStore = defineStore("notes", {
                 content,
                 pinned: false,
             })
+            router.push('/')
         },
         edditNote(id, title, content){
             const index = this.notes.findIndex((note) => note.id === id)
@@ -56,9 +58,15 @@ export const useNoteStore = defineStore("notes", {
             }            
         },
         togglePinned(id) {
-            const index = this.notes.findIndex((note)=> note.id === id)
-            if(!index == -1) {
-                this.notes[index].pinned !== this.notes[index].pinned
+            const index = this.notes.findIndex( note => note.id === id)
+            if(index !== -1) {
+                this.notes[index].pinned = !this.notes[index].pinned
+            }
+        },
+        deleteNote(id){
+            const index = this.notes.findIndex((note) => note.id === id)
+            if(index !== -1){
+                this.notes.splice(index, 1)
             }
         },
     }
