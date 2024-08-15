@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { useNoteStore } from '../stores/NoteStore';
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const router = useRouter()
 const noteStore = useNoteStore()
@@ -10,11 +10,19 @@ const keyword = ref('')
 const searchKeyword = async () => {
     const results = await noteStore.serachNote(keyword.value)
     router.push({ name: 'search', params: {searchResults: results}})
+
+    keyword.value = ''
+    document.querySelector('#keyword').placeholder = 'Search'
 }
  
 const clearPlaceholder = () => {
     document.querySelector('#keyword').placeholder = 'Search'
 }
+
+watch(router.currentRoute, () => {
+    keyword.value = ''
+    document.querySelector('#keyword').placeholder = 'Search'
+})
 </script>
  
 <template>
@@ -27,10 +35,9 @@ const clearPlaceholder = () => {
                 </a>
             </div>
             
-
             <form class="d-flex" @submit.prevent="searchKeyword">
-                <input id="keyword" v-model="keyword" @keyup.enter="searchKeyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @focus="clearPlaceholder">
-                <button class="btn btn-outline-success" type="submit" @click="searchKeyword"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input id="keyword" v-model="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @focus="clearPlaceholder">
+                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
 
         </div>

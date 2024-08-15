@@ -23,7 +23,7 @@ const turnBackHome = () => {
                         <div class="card px-0 py-3" style="width: 100%; height: 100%;">
                             
                             <div class="card-body">
-                                <i class="fa-solid fa-thumbtack rotate"></i>
+                                <i v-if="note.pinned" class="fa-solid fa-thumbtack rotate"></i>
                                 <h5 class="card-title">{{ note.title }}</h5>
                                 <hr>
                                 <h6 class="card-text">{{ note.content }}</h6>                        
