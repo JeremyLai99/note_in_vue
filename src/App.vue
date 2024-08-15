@@ -4,32 +4,23 @@ import NoteList from './components/NoteList.vue';
 </script>
 
 <template>
-  <Navbar />
-  <div class="container-fluid mt-5">
-    <div class="row">
-      <div class="col-3">
-        <NoteList />        
-      </div>
-      <div class="col-9">
-        <router-view />        
+
+    <Navbar />
+    <div class="contenter-fluid" style="margin-top: 100px;">
+      <div class="row">
+        <div class="col-3">
+          <NoteList />        
+        </div>
+        <div class="col-9">
+          <router-view />        
+        </div>
       </div>
     </div>
-  </div>
-  
+
 
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
+
 </style>

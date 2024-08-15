@@ -28,7 +28,9 @@ export const useNoteStore = defineStore("notes", {
                 "content": "每周至少三次運動，保持身體健康。",
                 "pinned": true
                 },
-        ]
+        ],
+        keyword: null,
+        searchResults: [],
     }),
     getters:{
         allNotes(state){
@@ -68,6 +70,13 @@ export const useNoteStore = defineStore("notes", {
             if(index !== -1){
                 this.notes.splice(index, 1)
             }
+        }, 
+        serachNote(keyword){
+            this.keyword = keyword.toLowerCase()
+            this.searchResults = this.notes.filter(note =>
+                note.title.toLowerCase().includes(this.keyword) ||
+                note.content.toLowerCase().includes(this.keyword)
+            )
         },
     }
 })

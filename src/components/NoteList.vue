@@ -31,14 +31,15 @@ const confirmDelete = () =>{
 </script>
 
 <template>
-    <div class="sideBar mt-5">
-        <router-link :to="{ name: 'add'}" class="d-flex justify-content-center">
-            <button class="btn btn-warning">新增筆記</button>
+    <div class="sideBar">
+        <router-link :to="{ name: 'add'}">
+            <button class="btn btn-warning w-100">新增筆記</button>
         </router-link>
+
         <div class="important">
             <h4><i class="fa-solid fa-thumbtack me-2" style="color: red;"></i> 重要</h4>
             <div v-for="note in noteStore.pinnedNotes" :key="note.id" class="listItem d-flex justify-content-between">
-                <router-link :to="{ name: 'edit', params: { id: note.id} }" style="width: 240px;">
+                <router-link :to="{ name: 'edit', params: { id: note.id} }" style="width: 220px;">
                     <div class="note-title ms-2" >{{ note.title }}</div>
                 </router-link>
                 <div class="">
@@ -50,7 +51,7 @@ const confirmDelete = () =>{
         <div class="others">
             <h4><i class="fa-solid fa-list-check me-2"  style="color: brown;"></i> 其他</h4>
             <div v-for="note in noteStore.allNotes" :key="note.id" class="listItem d-flex justify-content-between">
-                <router-link :to="{ name: 'edit', params: { id: note.id} }" style="width: 240px;">
+                <router-link :to="{ name: 'edit', params: { id: note.id} }" style="width: 220px;">
                     <div class="note-title ms-2" >{{ note.title }}</div>
                 </router-link>
                 <div class="">
@@ -81,14 +82,16 @@ const confirmDelete = () =>{
 </template>
 
 <style scoped>
-.important{
+.sideBar{
+padding-left: 20px
+}
+
+
+.important, .others{
     margin-top: 20px;
     padding-left: 20px;
 }
-.others{
-    margin-top: 20px;
-    padding-left: 20px;
-}
+
 .rotate{
     color: red;
     transform: rotate(45deg);
@@ -105,7 +108,7 @@ const confirmDelete = () =>{
   }
   .listItem:hover .note-title,
   .listItem:hover .fa-trash-can {
-  color: white; /* 變白色 */
+  color: white;
 }
   .note-title{
     font-size: 18px;
