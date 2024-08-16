@@ -1,5 +1,6 @@
-# Vue 3 + Vite
+用vue做的小記事本頁面
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+- 以圖釘作為重要筆記與其他筆記的區別, 點擊圖表即可切換
+- 重要的筆記會排在前面
+- 點擊左側筆記項目或是右側筆記頁的圖釘可切換重要性
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).

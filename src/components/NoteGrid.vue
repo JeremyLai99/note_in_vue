@@ -2,18 +2,20 @@
 import { useNoteStore } from '../stores/NoteStore';
 
 const noteStore = useNoteStore()
+const { togglePinned } = noteStore
 </script>
 
 <template>
 
         <div class="container mt-3">
             <div class="row">
-                <div class="col-4 mt-3" v-for="note in noteStore.pinnedNotes">
+                <div class="col-4 mt-3" v-for="note in noteStore.pinnedNotes" :key="note.id">
+                    
                     <router-link :to="{ name: 'edit', params: { id: note.id}}">
                         <div class="card px-0 py-3" style="width: 100%; height: 100%;">
                             
                             <div class="card-body">
-                                <i class="fa-solid fa-thumbtack rotate"></i>
+                                <i class="fa-solid fa-thumbtack rotate" @click.prevent="togglePinned(note.id)"></i>
                                 <h5 class="card-title">{{ note.title }}</h5>
                                 <hr>
                                 <h6 class="card-text">{{ note.content }}</h6>                        
@@ -21,10 +23,11 @@ const noteStore = useNoteStore()
                         </div>
                     </router-link>                                
                 </div>
-                <div class="col-4 mt-3" v-for="note in noteStore.allNotes">
+                <div class="col-4 mt-3" v-for="note in noteStore.allNotes" :key="note.id">
                     <router-link :to="{ name: 'edit', params: { id: note.id}}">
                         <div class="card px-0 py-3" style="width: 100%;  height: 100%;">
                         <div class="card-body">
+                            <i class="fa-solid fa-thumbtack unRotate" @click.prevent="togglePinned(note.id)"></i>
                             <h5 class="card-title">{{ note.title }}</h5>
                             <hr>
                             <h6 class="card-text">{{ note.content }}</h6>                        
@@ -60,5 +63,14 @@ const noteStore = useNoteStore()
     top: -10px; 
     right: 15px;
     font-size:x-large;
+    z-index: 10;
+  }
+.unRotate{
+    color: #212529;
+    position: absolute; 
+    top: -10px; 
+    right: 15px;
+    font-size:x-large;
+    z-index: 10;
   }
 </style>

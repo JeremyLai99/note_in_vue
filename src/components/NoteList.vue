@@ -1,12 +1,10 @@
 <script setup>
-import { ref } from 'vue';
 import { useNoteStore } from '../stores/NoteStore';
-import { storeToRefs } from 'pinia';
-import { useRouter } from 'vue-router';
+
 
 let selectedNoteId = null
-const router = useRouter()
 
+ 
 const noteStore = useNoteStore()
 const { togglePinned } = noteStore
 

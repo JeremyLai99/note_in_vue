@@ -20,12 +20,18 @@ export const useNoteStore = defineStore("notes", {
                 "id": 3,
                 "title": "閱讀計畫",
                 "content": "今年計劃閱讀十本書，已經看完了三本。",
-                "pinned": true
+                "pinned": false
                 },
                 {
                 "id": 4,
                 "title": "運動計畫",
                 "content": "每周至少三次運動，保持身體健康。",
+                "pinned": false
+                },
+                {
+                "id": 5,
+                "title": "女兒慶生",
+                "content": "10/10 要訂餐廳位子。",
                 "pinned": true
                 },
         ],
