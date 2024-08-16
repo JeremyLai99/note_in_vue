@@ -6,7 +6,7 @@ import NoteList from './components/NoteList.vue';
 <template>
 
     <Navbar />
-    <div class="contenter-fluid" style="margin-top: 100px;">
+    <div class="contenter-fluid">
       <div class="row">
         <div class="col-3">
           <NoteList />        

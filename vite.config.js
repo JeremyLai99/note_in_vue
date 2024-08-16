@@ -6,3 +6,5 @@ export default defineConfig({
   base: '/note_in_vue/',
   plugins: [vue()],
 })
+
+

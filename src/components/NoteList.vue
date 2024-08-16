@@ -81,7 +81,8 @@ const confirmDelete = () =>{
 
 <style scoped>
 .sideBar{
-padding-left: 20px
+padding-left: 20px;
+margin-top: 50px;
 }
 
 
